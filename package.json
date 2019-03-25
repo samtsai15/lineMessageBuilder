@@ -1,0 +1,18 @@
+{
+  "name": "linemessagebuilder",
+  "version": "0.0.1-alpha",
+  "description": "Easy made Line message json format",
+  "main": "index.js",
+  "author": "EarthFeng <samtsai15@gmail.com>",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "cz-conventional-changelog": "^2.1.0",
+    "eslint": "^5.3.0"
+  },
+  "license": "ISC"
+}
