@@ -1,18 +1,8 @@
-const { Header, Hero, Body, Footer, Style } = require('../index');
+const Container = require('./container/index');
+const { Header, Hero, Body, Footer, Style } = Container;
+
 
 const checkClassName = obj => obj.constructor.name;
-
-module.exports.Header = require('./container/Header');
-module.exports.Hero = require('./container/Hero');
-module.exports.Body = require('./container/Body');
-module.exports.Footer = require('./container/Footer');
-module.exports.Style = require('./container/Style');
-
-module.exports.Box = require('./components/Box');
-module.exports.Button = require('./components/Button');
-module.exports.Image = require('./components/Image');
-module.exports.Separator = require('./components/Separator');
-module.exports.Text = require('./components/Text');
 
 module.exports = class FlexMessage {
   constructor(contents, altText, direction) {
@@ -109,4 +99,5 @@ module.exports = class FlexMessage {
 
     return this;
   }
-};
+}
+

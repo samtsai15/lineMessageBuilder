@@ -5,7 +5,7 @@ const Base = require('./Base');
 const Separator = require('./Separator');
 
 module.exports = class Box extends Base {
-  constructor(box) {
+  constructor(box = null) {
     super();
     this.type = 'box';
     this.contents = [];

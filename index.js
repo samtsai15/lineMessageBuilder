@@ -1,5 +1,2 @@
-const FlexMessage = require('./FlexMessage');
-
-module.exports = {
-  FlexMessage,
-};
+module.exports.FlexMessage = require('./FlexMessage');
+module.exports.Components = require('./FlexMessage/components/index');
