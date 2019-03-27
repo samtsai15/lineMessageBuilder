@@ -1,6 +1,6 @@
 {
   "name": "linemessagebuilder",
-  "version": "0.0.1-alpha",
+  "version": "0.0.2-alpha",
   "description": "Easy made Line message json format",
   "main": "index.js",
   "author": "EarthFeng <samtsai15@gmail.com>",
@@ -8,7 +8,9 @@
     "example": "example"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "preversion": "npm test",
+    "version": "git add -A dist",
+    "postversion": "git push && git push --tags"
   },
   "devDependencies": {
     "cz-conventional-changelog": "^2.1.0",
