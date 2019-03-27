@@ -35,8 +35,14 @@ module.exports = class Text extends Base {
     return this;
   }
 
+  /**
+   *
+   * @param {*} flex
+   */
   setFlex(flex) {
-    if (flex) this.flex = flex;
+    if (flex !== null && flex !== undefined && Number.isInteger(flex)) {
+      this.flex = flex;
+    }
     return this;
   }
 

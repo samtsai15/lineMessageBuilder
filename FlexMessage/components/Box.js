@@ -32,7 +32,6 @@ module.exports = class Box extends Base {
     return this;
   }
 
-
   setContents(contents) {
     if (!contents) {
       throw Error(`Need set ${this.type} contents: Array`);
@@ -44,6 +43,11 @@ module.exports = class Box extends Base {
 
   setSpacing(spacing) {
     this.spacing = spacing;
+    return this;
+  }
+
+  setFlex(flex) {
+    if (flex) this.flex = flex;
     return this;
   }
 

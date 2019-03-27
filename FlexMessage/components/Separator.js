@@ -1,7 +1,10 @@
-module.exports = class Separator {
-  constructor(margin, color) {
+const Base = require('./Base');
+
+module.exports = class Separator extends Base {
+  constructor(margin) {
+    super();
     this.type = 'separator';
+    // this.margin;
     if (margin) this.margin = margin;
-    if (color) this.color = color;
   }
 };
