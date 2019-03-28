@@ -1,6 +1,6 @@
 {
   "name": "linemessagebuilder",
-  "version": "0.0.3-alpha",
+  "version": "0.0.4-alpha",
   "description": "Easy made Line message json format",
   "main": "index.js",
   "author": "EarthFeng <samtsai15@gmail.com>",
