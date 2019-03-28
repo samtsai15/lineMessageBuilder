@@ -1,5 +1,5 @@
 {
-  "name": "linemessagebuilder",
+  "name": "line-message-builder",
   "version": "0.0.4-alpha",
   "description": "Easy made Line message json format",
   "main": "index.js",
