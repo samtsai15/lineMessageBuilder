@@ -1,5 +1,8 @@
 const Container = require('./container/index');
-const { Header, Hero, Body, Footer, Style } = Container;
+
+const {
+  Header, Hero, Body, Footer, Style,
+} = Container;
 
 
 const checkClassName = obj => obj.constructor.name;
@@ -99,5 +102,4 @@ module.exports = class FlexMessage {
 
     return this;
   }
-}
-
+};

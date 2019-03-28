@@ -1,87 +1,68 @@
-const Base = require('./Base');
+const { mix } = require('mics');
 
-module.exports = class Text extends Base {
-  constructor(text, options) {
-    super();
-    this.type = 'text';
-    this.setText(text);
-    this.setOptions(options);
-  }
+const {
+  Spacing, Margin, Layout, Flex, Weight, Size, Gravity, Wrap, Color,
+} = require('../property/index');
 
-  setText(text) {
-    if (!text) {
-      throw Error('Need input text');
+module.exports = mix(
+  Spacing,
+  Layout,
+  Margin,
+  Flex,
+  Weight,
+  Size,
+  Gravity,
+  Wrap,
+  Color,
+  superclass => class Text extends superclass {
+    constructor(text, options) {
+      super();
+      this.type = 'text';
+      this.setText(text);
+      this.setOptions(options);
     }
-    if (typeof text !== 'string') {
-      throw Error('not String');
+
+    setText(text) {
+      if (!text) {
+        throw Error('Need input text');
+      }
+      if (typeof text !== 'string') {
+        throw Error('not String');
+      }
+      this.text = text;
+      return this;
     }
-    this.text = text;
-    return this;
-  }
 
-  setOptions(options) {
-    if (options) {
-      this.setFlex(options.flex);
-      super.setMargin(options.margin);
-      this.setSize(options.size);
-      this.setAlign(options.align);
-      this.setGravity(options.gravity);
-      this.setWrap(options.wrap);
-      this.setMaxLines(options.maxLines);
-      super.setWeight(options.weight);
-      this.setColor(options.color);
-      this.setAction(options.action);
+    setOptions(options) {
+      if (options) {
+        this.setFlex(options.flex);
+        this.setMargin(options.margin);
+        this.setSize(options.size);
+        this.setAlign(options.align);
+        this.setGravity(options.gravity);
+        this.setWrap(options.wrap);
+        this.setMaxLines(options.maxLines);
+        this.setWeight(options.weight);
+        this.setColor(options.color);
+        this.setAction(options.action);
+      }
+      return this;
     }
-    return this;
-  }
 
-  /**
-   *
-   * @param {*} flex
-   */
-  setFlex(flex) {
-    if (flex !== null && flex !== undefined && Number.isInteger(flex)) {
-      this.flex = flex;
+    // Text only
+    setAlign(align) {
+      if (align) this.align = align;
+      return this;
     }
-    return this;
-  }
 
-  // super.setMargin()
+    setMaxLines(maxLines) {
+      if (maxLines) this.maxLines = maxLines;
+      return this;
+    }
 
-  setSize(size) {
-    if (size) this.size = size;
-    return this;
-  }
-
-  setAlign(align) {
-    if (align) this.align = align;
-    return this;
-  }
-
-  setGravity(gravity) {
-    if (gravity) this.gravity = gravity;
-    return this;
-  }
-
-  setWrap(wrap) {
-    if (wrap) this.wrap = wrap;
-    return this;
-  }
-
-  setMaxLines(maxLines) {
-    if (maxLines) this.maxLines = maxLines;
-    return this;
-  }
-
-  // super.setWeight()
-
-  setColor(color) {
-    if (color) this.color = color;
-    return this;
-  }
-
-  setAction(action) {
-    if (action) this.action = action;
-    return this;
-  }
-};
+    setAction(action) {
+      if (action) this.action = action;
+      return this;
+    }
+  },
+);
