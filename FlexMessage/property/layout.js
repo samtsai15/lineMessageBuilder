@@ -11,11 +11,12 @@ module.exports = mix(
      * @param {*} layout
      */
     setLayout(layout) {
-      if (!layout || layoutLimit.includes(layout) === false) {
-        throw Error(`Need set ${this.type} layout : ${layoutLimit}`);
+      if (layout) {
+        if (layoutLimit.includes(layout) === false) {
+          throw Error(`Need set ${this.type} layout : ${layoutLimit}`);
+        }
+        this.layout = layout;
       }
-
-      this.layout = layout;
       return this;
     }
 

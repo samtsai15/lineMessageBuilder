@@ -11,5 +11,10 @@ module.exports = mix(
       if (weight) this.weight = weight;
       return this;
     }
+
+    setWeightBold() {
+      this.weight = 'bold';
+      return this;
+    }
   },
 );
