@@ -35,16 +35,16 @@ module.exports = mix(
 
     setOptions(options) {
       if (options) {
-        this.setFlex(options.flex);
-        this.setMargin(options.margin);
-        this.setSize(options.size);
-        this.setAlign(options.align);
-        this.setGravity(options.gravity);
-        this.setWrap(options.wrap);
-        this.setMaxLines(options.maxLines);
-        this.setWeight(options.weight);
-        this.setColor(options.color);
-        this.setAction(options.action);
+        if (options.flex) this.setFlex(options.flex);
+        if (options.margin) this.setMargin(options.margin);
+        if (options.size) this.setSize(options.size);
+        if (options.align) this.setAlign(options.align);
+        if (options.gravity) this.setGravity(options.gravity);
+        if (options.wrap) this.setWrap(options.wrap);
+        if (options.maxLines) this.setMaxLines(options.maxLines);
+        if (options.weight) this.setWeight(options.weight);
+        if (options.color) this.setColor(options.color);
+        if (options.action) this.setAction(options.action);
       }
       return this;
     }
