@@ -3,24 +3,56 @@
  */
 const { mix } = require('mics');
 
+const spacingLimit = ['none', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'];
+
 module.exports = mix(
   superclass => class Spacing extends superclass {
     /**
-     *
-     * @param {*} spacing
-     */
+       *
+       * @param {*} spacing
+       */
     setSpacing(spacing) {
-      this.spacing = spacing;
+      if (spacing) {
+        if (spacingLimit.includes(spacing) === false) {
+          throw Error('Wrong Spacing');
+        }
+        this.spacing = spacing;
+      }
       return this;
     }
 
-    setSpacingSM() {
+    setSpacingNone() {
+      this.spacing = 'none';
+      return this;
+    }
+
+    setSpacingXs() {
+      this.spacing = 'xs';
+      return this;
+    }
+
+    setSpacingSm() {
       this.spacing = 'sm';
       return this;
     }
 
-    setSpacingLG() {
+    setSpacingMd() {
+      this.spacing = 'md';
+      return this;
+    }
+
+    setSpacingLg() {
       this.spacing = 'lg';
+      return this;
+    }
+
+    setSpacingXl() {
+      this.spacing = 'xl';
+      return this;
+    }
+
+    setSpacingXxl() {
+      this.spacing = 'xxl';
       return this;
     }
   },

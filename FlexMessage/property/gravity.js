@@ -9,10 +9,12 @@ module.exports = mix(
      * @param {*} gravity
      */
     setGravity(gravity) {
-      if (!gravity || gravityLimit.includes(gravity) === false) {
-        throw Error('Wrong Gravity');
+      if (gravity) {
+        if (gravityLimit.includes(gravity) === false) {
+          throw Error('Wrong Gravity');
+        }
+        this.gravity = gravity;
       }
-      this.gravity = gravity;
       return this;
     }
     // TODO: need create others valueFunction()

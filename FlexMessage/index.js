@@ -4,42 +4,19 @@ const {
   Header, Hero, Body, Footer, Style,
 } = Container;
 
-
 const checkClassName = obj => obj.constructor.name;
 
-module.exports = class FlexMessage {
-  constructor(contents, altText, direction) {
-    this.type = 'flex';
-    this.setAltText(altText);
-    this.setDirection(direction);
-    this.contents = contents || {};
+class BubbleMessage {
+  constructor() {
+    this.type = 'bubble';
   }
 
-  // Set FlexMessage altText.
-  setAltText(text) {
-    if (text) this.altText = text;
-    return this;
-  }
-
-  // Set FlexMessage direction.
-  setDirection(direction) {
-    if (direction) this.direction = direction;
-    return this;
-  }
-
-  // Set contents type value (bubble).
-  setContentsType(type) {
-    this.contents.type = type;
-    return this;
-  }
-
-  // Set contents header section.
   setHeader(header) {
     if (header) {
       if (checkClassName(header) !== 'Header') {
-        this.contents.header = new Header(header);
+        this.header = new Header(header);
       } else {
-        this.contents.header = header;
+        this.header = header;
       }
     }
     return this;
@@ -49,9 +26,9 @@ module.exports = class FlexMessage {
   setHero(hero) {
     if (hero) {
       if (checkClassName(hero) !== 'Hero') {
-        this.contents.hero = new Hero(hero);
+        this.hero = new Hero(hero);
       } else {
-        this.contents.hero = hero;
+        this.hero = hero;
       }
     }
     return this;
@@ -61,9 +38,9 @@ module.exports = class FlexMessage {
   setBody(body) {
     if (body) {
       if (checkClassName(body) !== 'Body') {
-        this.contents.body = new Body(body);
+        this.body = new Body(body);
       } else {
-        this.contents.body = body;
+        this.body = body;
       }
     }
     return this;
@@ -73,9 +50,9 @@ module.exports = class FlexMessage {
   setFooter(footer) {
     if (footer) {
       if (checkClassName(footer) !== 'Footer') {
-        this.contents.footer = new Footer(footer);
+        this.footer = new Footer(footer);
       } else {
-        this.contents.footer = footer;
+        this.footer = footer;
       }
     }
     return this;
@@ -92,14 +69,53 @@ module.exports = class FlexMessage {
     }
     return this;
   }
+}
 
-  setContents(messageObject) {
-    this.setHeader(messageObject.header);
-    this.setHero(messageObject.hero);
-    this.setBody(messageObject.body);
-    this.setFooter(messageObject.footer);
-    this.setStyle(messageObject.style);
+class FlexMessage {
+  constructor(contents) {
+    this.type = 'flex';
+    this.contents = contents || {};
+  }
 
+  // Set FlexMessage altText.
+  setAltText(text) {
+    if (text) this.altText = text;
     return this;
   }
+
+  // Set FlexMessage direction.
+  setDirection(direction) {
+    if (direction) this.direction = direction;
+    return this;
+  }
+
+  // Set contents type value (bubble , carousel).
+  setContentsType(type) {
+    this.contents.type = type;
+    return this;
+  }
+
+  setContentsTypeCarousel() {
+    this.contents.type = 'carousel';
+    this.contents.contents = [];
+    return this;
+  }
+
+  addCarouselContent(bubble) {
+    if (this.contents.type !== 'carousel') {
+      throw Error('need set type: carousel');
+    }
+    this.contents.contents.push(bubble);
+    return this;
+  }
+
+  setBubbleContent(content) {
+    this.contents = content;
+    return this;
+  }
+}
+
+module.exports = {
+  FlexMessage,
+  BubbleMessage,
 };
