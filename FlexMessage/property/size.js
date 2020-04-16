@@ -1,6 +1,8 @@
+// TODO: different components have different limit
 const { mix } = require('mics');
 
-const sizeLimit = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'];
+const sizeLimit = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'full'];
+
 
 module.exports = mix(
   superclass => class Size extends superclass {

@@ -1,15 +1,13 @@
 {
   "name": "line-message-builder",
-  "version": "0.0.5-alpha",
+  "version": "0.0.6-alpha",
   "description": "Easy made Line message json format",
   "main": "index.js",
   "author": "EarthFeng <samtsai15@gmail.com>",
   "directories": {
     "example": "example"
   },
-  "scripts": {
-
-  },
+  "scripts": {},
   "devDependencies": {
     "cz-conventional-changelog": "^2.1.0",
     "eslint": "^5.3.0",
@@ -21,6 +19,6 @@
   },
   "license": "ISC",
   "dependencies": {
-    "mics": "0.7.0"   
+    "mics": "0.7.0"
   }
 }
