@@ -1,6 +1,6 @@
 const { mix } = require('mics');
 
-const sizeLimit = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'];
+const sizeLimit = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'full'];
 
 module.exports = mix(
   superclass => class Size extends superclass {
@@ -8,7 +8,7 @@ module.exports = mix(
      *
      * @param {*} size
      */
-    setSize(size) {
+    setSize (size) {
       if (size) {
         if (sizeLimit.includes(size) === false) {
           throw Error('Wrong Size');
@@ -20,33 +20,38 @@ module.exports = mix(
       return this;
     }
 
-    setSizeXs() {
+    setSizeXs () {
       this.size = 'xs';
       return this;
     }
 
-    setSizeSm() {
+    setSizeSm () {
       this.size = 'sm';
       return this;
     }
 
-    setSizeMd() {
+    setSizeMd () {
       this.size = 'md';
       return this;
     }
 
-    setSizeLg() {
+    setSizeLg () {
       this.size = 'lg';
       return this;
     }
 
-    setSizeXl() {
+    setSizeXl () {
       this.size = 'xl';
       return this;
     }
 
-    setSizeXxl() {
+    setSizeXxl () {
       this.size = 'xxl';
+      return this;
+    }
+
+    setSizeFull () {
+      this.size = 'full';
       return this;
     }
   },
